@@ -1,14 +1,41 @@
-import { Link } from "expo-router";
-import { View,Text } from "react-native";
+import { images } from "@/constants";
+import { Link, router } from "expo-router";
+import { View, Text, SafeAreaView, ScrollView, StatusBar } from "react-native";
+import { Image } from "expo-image";
 
-export default function HomeScreen(){
-return (
- <View className='w-full h-full flex flex-col items-center justify-center  text-white'>
-    <Text className="text-3xl font-bold text-white">Root screen</Text>
-    <View  className="text-white">
-      <Link className="text-white" href={"/home"}>Home</Link>
-      <Link className="text-white" href={"/profile"}>Profile</Link>
-    </View>
- </View>
-);
+export default function HomeScreen() {
+  return (
+    <SafeAreaView className="bg-primary h-full">
+      {/* <Loader isLoading={loading} /> */}
+
+      <ScrollView
+        contentContainerStyle={{
+          height: "100%",
+        }}>
+        <View className="w-full flex justify-center items-center h-full px-4" >
+          <Image source={images.logo} className="w-[130px] h-[84px]" />
+
+          <Image source={images.cards} className="max-w-[380px] w-full h-[298px]" />
+
+          <View className="relative mt-5">
+            <Text className="text-3xl text-white font-bold text-center">
+              Discover Endless{"\n"}
+              Possibilities with <Text className="text-secondary-200">Aora</Text>
+            </Text>
+
+            <Image
+              source={images.path}
+              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
+              resizeMode="contain"
+            />
+          </View>
+
+          <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">
+            Where Creativity Meets Innovation: Embark on a Journey of Limitless Exploration with
+            Aora
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }

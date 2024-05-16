@@ -1,4 +1,5 @@
-import profile from "../assets/images/profile.png";
+//  @ts-nocheck
+import profile from "../assets/images/empty.png";
 import thumbnail from "../assets/images/thumbnail.png";
 import cards from "../assets/images/cards.png";
 import path from "../assets/images/path.png";

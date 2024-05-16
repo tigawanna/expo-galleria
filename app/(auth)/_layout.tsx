@@ -1,6 +1,6 @@
-import { Slot, Tabs } from "expo-router";
-import { View, Text, StyleSheet, Image } from "react-native";
-import { icons } from "../../constants";
+import { Tabs } from "expo-router";
+import { StyleSheet } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 export default function AuthLayout() {
   return (
     <Tabs
@@ -12,72 +12,23 @@ export default function AuthLayout() {
           backgroundColor: "#161622",
           borderTopWidth: 1,
           borderTopColor: "#232533",
-          height: 84,
         },
       }}>
       <Tabs.Screen
-        name="home"
+        name="signin"
         options={{
-          title: "Home",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.home} color={color} name="Home" focused={focused} />
-          ),
+          title: "Signin",
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="sign-in" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="bookmark"
+        name="signup"
         options={{
-          title: "Bookmark",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.bookmark} color={color} name="Bookmark" focused={focused} />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
-        name="create"
-        options={{
-          title: "Create",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.plus} color={color} name="Create" focused={focused} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: "Profile",
-          headerShown: false,
-          tabBarIcon: ({ color, focused }) => (
-            <TabIcon icon={icons.profile} color={color} name="Profile" focused={focused} />
-          ),
+          title: "Signup",
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="plus" color={color} />,
         }}
       />
     </Tabs>
   );
 }
 const styles = StyleSheet.create({});
-
-interface TabIconProps {
-  name: string;
-  color: string;
-  focused: boolean;
-
-  icon: string;
-}
-
-export function TabIcon({ name, color, focused, icon }: TabIconProps) {
-  return (
-    <View className="">
-      <Image source={{ uri: icon }} resizeMode="contain" tintColor={color} className="size-4" />
-      <Text
-        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
-        style={{ color: color }}>
-        {name}
-      </Text>
-    </View>
-  );
-}
